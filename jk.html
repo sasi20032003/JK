@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Happy Birthday | Spider-Man Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  /* ========== RESET & ROOT ========== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #E8232A;
+    --red-dark: #9B1218;
+    --blue: #1A3AFF;
+    --blue-dark: #0A1A8A;
+    --black: #0A0A0F;
+    --white: #F4F4F0;
+    --gold: #FFD700;
+    --neon-red: #FF2D55;
+    --neon-blue: #00BFFF;
+    --web-color: rgba(255,255,255,0.07);
+    --card-bg: rgba(10,20,60,0.75);
+    --transition: 0.35s cubic-bezier(.4,0,.2,1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Comic Neue', cursive;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='5' fill='%23E8232A' stroke='white' stroke-width='2'/%3E%3C/svg%3E") 12 12, auto;
+  }
+
+  /* ========== SCROLLBAR ========== */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
+
+  /* ========== LIGHT MODE ========== */
+  body.light {
+    --black: #E8EAF6;
+    --white: #0A0A0F;
+    --card-bg: rgba(200,210,255,0.7);
+    --web-color: rgba(0,0,0,0.06);
+    background: #E8EAF6;
+    color: #0A0A0F;
+  }
+  body.light .city-bg { filter: invert(1) hue-rotate(180deg) brightness(0.6); }
+  body.light nav { background: rgba(232,234,246,0.92); border-bottom-color: rgba(0,0,0,0.1); }
+  body.light .nav-logo { color: var(--red-dark); }
+  body.light .quote-text { color: #0A0A0F; }
+
+  /* ========== CITY BG ========== */
+  .city-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 30% 5%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 20%, rgba(255,255,255,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 70% 8%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 12%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 20% 25%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 3%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 85% 18%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(ellipse 200px 200px at 85% 10%, rgba(100,130,255,0.15) 0%, transparent 70%),
+      linear-gradient(180deg, #02040F 0%, #05102A 30%, #0A1A40 55%, #12213A 70%, #1A2A4A 100%);
+  }
+
+  .city-bg::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 45%;
+    background:
+      linear-gradient(180deg, transparent 0%, #080B18 100%);
+    clip-path: polygon(
+      0% 100%, 0% 60%, 2% 60%, 2% 40%, 4% 40%, 4% 55%, 6% 55%, 6% 30%,
+      7% 30%, 7% 35%, 8% 35%, 8% 25%, 9% 25%, 9% 45%, 11% 45%, 11% 20%,
+      12% 20%, 12% 15%, 13% 15%, 13% 20%, 14% 20%, 14% 50%, 16% 50%, 16% 35%,
+      17% 35%, 17% 30%, 18% 30%, 18% 10%, 19% 10%, 19% 30%, 20% 30%, 20% 45%,
+      21% 45%, 21% 25%, 22% 25%, 22% 35%, 24% 35%, 24% 55%, 25% 55%, 25% 40%,
+      26% 40%, 26% 20%, 27% 20%, 27% 5%, 28% 5%, 28% 20%, 29% 20%, 29% 40%,
+      30% 40%, 30% 30%, 31% 30%, 31% 45%, 33% 45%, 33% 25%, 35% 25%, 35% 40%,
+      36% 40%, 36% 15%, 37% 15%, 37% 10%, 38% 10%, 38% 15%, 39% 15%, 39% 40%,
+      40% 40%, 40% 35%, 42% 35%, 42% 50%, 43% 50%, 43% 30%, 44% 30%, 44% 20%,
+      45% 20%, 45% 30%, 46% 30%, 46% 45%, 48% 45%, 48% 25%, 50% 25%, 50% 40%,
+      51% 40%, 51% 20%, 52% 20%, 52% 8%, 53% 8%, 53% 20%, 54% 20%, 54% 35%,
+      55% 35%, 55% 50%, 57% 50%, 57% 30%, 58% 30%, 58% 45%, 60% 45%, 60% 25%,
+      61% 25%, 61% 35%, 63% 35%, 63% 55%, 64% 55%, 64% 35%, 65% 35%, 65% 20%,
+      66% 20%, 66% 35%, 68% 35%, 68% 50%, 70% 50%, 70% 30%, 71% 30%, 71% 15%,
+      72% 15%, 72% 30%, 73% 30%, 73% 45%, 75% 45%, 75% 25%, 76% 25%, 76% 40%,
+      78% 40%, 78% 20%, 79% 20%, 79% 12%, 80% 12%, 80% 20%, 81% 20%, 81% 35%,
+      82% 35%, 82% 50%, 84% 50%, 84% 30%, 85% 30%, 85% 45%, 87% 45%, 87% 25%,
+      88% 25%, 88% 40%, 90% 40%, 90% 55%, 92% 55%, 92% 35%, 93% 35%, 93% 20%,
+      94% 20%, 94% 35%, 96% 35%, 96% 50%, 97% 50%, 97% 30%, 98% 30%, 98% 55%,
+      100% 55%, 100% 100%
+    );
+  }
+
+  /* ========== WEB PATTERN OVERLAY ========== */
+  .web-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.4;
+    background-image:
+      repeating-conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 14deg, var(--web-color) 14deg, var(--web-color) 15deg);
+    background-size: 120px 120px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+  }
+
+  /* ========== NAVBAR ========== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 2rem;
+    background: rgba(5,10,30,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(232,35,42,0.3);
+    transition: background var(--transition);
+  }
+
+  .nav-logo {
+    font-family: 'Bangers', cursive;
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+    color: var(--red);
+    text-shadow: 0 0 12px rgba(232,35,42,0.6);
+  }
+
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a {
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 2px;
+    font-size: 0.95rem;
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.3rem 0;
+    position: relative;
+    transition: color var(--transition);
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; width: 0; height: 2px;
+    background: var(--red);
+    transition: width var(--transition);
+  }
+  .nav-links a:hover { color: var(--red); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-controls { display: flex; gap: 0.7rem; }
+  .icon-btn {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--white);
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all var(--transition);
+  }
+  .icon-btn:hover { background: var(--red); border-color: var(--red); transform: scale(1.1); }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all var(--transition); }
+
+  /* ========== HERO SECTION ========== */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 1.5rem 3rem;
+    z-index: 2;
+    overflow: hidden;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 5px;
+    font-size: 0.85rem;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    margin-bottom: 1.2rem;
+    animation: fadeSlideDown 0.8s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(3rem, 9vw, 7.5rem);
+    line-height: 1;
+    letter-spacing: 4px;
+    background: linear-gradient(135deg, var(--red) 0%, #FF6B6B 40%, var(--white) 55%, var(--blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 30px rgba(232,35,42,0.5));
+    animation: fadeSlideDown 0.9s 0.1s ease both;
+  }
+
+  .hero-name {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(3.5rem, 11vw, 9rem);
+    letter-spacing: 6px;
+    display: block;
+    color: var(--gold);
+    text-shadow:
+      0 0 20px rgba(255,215,0,0.7),
+      0 0 60px rgba(255,215,0,0.3),
+      3px 3px 0 var(--red-dark);
+    animation: fadeSlideDown 1s 0.2s ease both, glowPulse 3s 1.2s ease-in-out infinite;
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: rgba(244,244,240,0.75);
+    margin: 1.2rem 0 2.5rem;
+    max-width: 500px;
+    animation: fadeSlideDown 1s 0.4s ease both;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeSlideDown 1s 0.6s ease both;
+  }
+
+  /* ========== SPIDERMAN SVG SWING ========== */
+  .spidey-wrap {
+    position: absolute;
+    top: 0; left: -180px;
+    width: 180px;
+    animation: swingAcross 7s 0.5s linear infinite;
+    z-index: 5;
+    pointer-events: none;
+  }
+  .spidey-wrap svg { width: 120px; height: 120px; }
+
+  .web-line {
+    position: absolute;
+    top: 0;
+    right: 30px;
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(255,255,255,0));
+    transform-origin: top center;
+    animation: swingAcrossLine 7s 0.5s linear infinite;
+  }
+
+  @keyframes swingAcross {
+    0%   { left: -180px; top: 8%; transform: scaleX(-1) rotate(-15deg); }
+    15%  { top: 18%; transform: scaleX(-1) rotate(10deg); }
+    30%  { top: 10%; transform: scaleX(-1) rotate(-5deg); }
+    50%  { top: 20%; transform: scaleX(-1) rotate(5deg); }
+    70%  { top: 12%; transform: scaleX(-1) rotate(-10deg); }
+    85%  { top: 22%; transform: scaleX(-1) rotate(8deg); }
+    100% { left: calc(100vw + 180px); top: 8%; transform: scaleX(-1) rotate(-15deg); }
+  }
+
+  .web-corner {
+    position: absolute;
+    top: 0; width: 220px; height: 220px;
+    pointer-events: none; z-index: 3;
+  }
+  .web-corner.left { left: 0; }
+  .web-corner.right { right: 0; transform: scaleX(-1); }
+
+  /* ========== BUTTONS ========== */
+  .btn {
+    font-family: 'Bangers', cursive;
+    letter-spacing: 3px;
+    font-size: 1.05rem;
+    padding: 0.8rem 2rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.15);
+    transform: translateX(-110%) skewX(-15deg);
+    transition: transform 0.4s ease;
+  }
+  .btn:hover::before { transform: translateX(110%) skewX(-15deg); }
+  .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+  .btn:active { transform: translateY(-1px); }
+
+  .btn-primary { background: var(--red); color: white; box-shadow: 0 4px 20px rgba(232,35,42,0.4); }
+  .btn-secondary { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.4); }
+  .btn-secondary:hover { border-color: var(--white); }
+
+  /* ========== SECTION SHARED ========== */
+  section { position: relative; z-index: 2; }
+  .section-inner { max-width: 1100px; margin: 0 auto; padding: 5rem 1.5rem; }
+
+  .section-label {
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 5px;
+    font-size: 0.8rem;
+    color: var(--neon-red);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.6rem;
+  }
+  .section-label::before, .section-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(to right, transparent, var(--neon-red));
+  }
+  .section-label::before { background: linear-gradient(to left, transparent, var(--neon-red)); }
+
+  .section-title {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  /* ========== ABOUT SECTION ========== */
+  #about { background: linear-gradient(180deg, transparent, rgba(26,58,255,0.06), transparent); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .about-text p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: rgba(244,244,240,0.82);
+    margin-bottom: 1rem;
+  }
+  .about-text .highlight {
+    color: var(--red);
+    font-weight: 700;
+  }
+
+  .about-shield {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .stat-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(232,35,42,0.25);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    backdrop-filter: blur(10px);
+    transition: all var(--transition);
+  }
+  .stat-card:hover {
+    border-color: var(--red);
+    transform: translateX(8px);
+    box-shadow: -4px 0 20px rgba(232,35,42,0.3);
+  }
+  .stat-icon { font-size: 2rem; }
+  .stat-label { font-family: 'Bebas Neue', cursive; letter-spacing: 2px; font-size: 0.75rem; color: rgba(255,255,255,0.5); }
+  .stat-value { font-family: 'Bangers', cursive; font-size: 1.3rem; letter-spacing: 1px; color: var(--gold); }
+
+  /* ========== QUOTE SECTION ========== */
+  #quotes {
+    background: linear-gradient(135deg, rgba(232,35,42,0.08), rgba(26,58,255,0.08));
+    border-top: 1px solid rgba(232,35,42,0.15);
+    border-bottom: 1px solid rgba(232,35,42,0.15);
+  }
+
+  .quote-carousel { position: relative; text-align: center; min-height: 160px; display: flex; align-items: center; justify-content: center; }
+  .quote-item {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    padding: 0 2rem;
+    max-width: 780px;
+  }
+  .quote-item.active { opacity: 1; position: relative; }
+  .quote-text {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+    letter-spacing: 2px;
+    color: var(--white);
+    line-height: 1.3;
+    text-shadow: 0 0 20px rgba(232,35,42,0.4);
+  }
+  .quote-source {
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+    color: var(--neon-blue);
+    margin-top: 0.8rem;
+  }
+
+  .quote-dots { display: flex; gap: 8px; justify-content: center; margin-top: 2rem; }
+  .quote-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: all var(--transition);
+  }
+  .quote-dot.active { background: var(--red); transform: scale(1.4); }
+
+  /* ========== GALLERY ========== */
+  #gallery { background: linear-gradient(180deg, transparent, rgba(10,20,60,0.4), transparent); }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .flip-card { height: 280px; perspective: 1000px; cursor: pointer; }
+  .flip-inner {
+    position: relative;
+    width: 100%; height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(.4,0,.2,1);
+  }
+  .flip-card:hover .flip-inner { transform: rotateY(180deg); }
+
+  .flip-front, .flip-back {
+    position: absolute; inset: 0;
+    backface-visibility: hidden;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(232,35,42,0.2);
+  }
+  .flip-front {
+    background: var(--card-bg);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 0.8rem;
+    backdrop-filter: blur(10px);
+  }
+  .flip-front::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(232,35,42,0.1), rgba(26,58,255,0.1));
+  }
+
+  .flip-back {
+    background: linear-gradient(135deg, var(--red-dark), var(--blue-dark));
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    transform: rotateY(180deg);
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .memory-icon { font-size: 3rem; position: relative; z-index: 1; }
+  .memory-label {
+    font-family: 'Bangers', cursive;
+    letter-spacing: 2px;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.6);
+    position: relative; z-index: 1;
+  }
+  .memory-number {
+    position: absolute; top: 1rem; right: 1rem;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 0.75rem;
+    color: var(--red);
+    letter-spacing: 2px;
+  }
+  .back-title {
+    font-family: 'Bangers', cursive;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+  }
+  .back-text { font-size: 0.9rem; line-height: 1.6; color: rgba(255,255,255,0.85); }
+
+  /* ========== SURPRISE SECTION ========== */
+  #surprise {
+    text-align: center;
+    background: linear-gradient(180deg, transparent, rgba(232,35,42,0.06), transparent);
+  }
+
+  .surprise-area { max-width: 600px; margin: 0 auto; }
+
+  .web-btn {
+    font-family: 'Bangers', cursive;
+    letter-spacing: 4px;
+    font-size: 1.4rem;
+    padding: 1.2rem 3rem;
+    background: linear-gradient(135deg, var(--red), var(--red-dark));
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition);
+    box-shadow: 0 6px 30px rgba(232,35,42,0.5), 0 0 0 0 rgba(232,35,42,0.3);
+    animation: pulseShadow 2.5s ease-in-out infinite;
+  }
+  .web-btn:hover { transform: scale(1.06); box-shadow: 0 10px 40px rgba(232,35,42,0.7); }
+
+  @keyframes pulseShadow {
+    0%, 100% { box-shadow: 0 6px 30px rgba(232,35,42,0.5), 0 0 0 0 rgba(232,35,42,0.3); }
+    50% { box-shadow: 0 6px 30px rgba(232,35,42,0.5), 0 0 0 18px rgba(232,35,42,0); }
+  }
+
+  .web-shoot {
+    position: absolute;
+    pointer-events: none;
+    z-index: 200;
+  }
+  .web-strand {
+    position: fixed;
+    top: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    transform-origin: top center;
+    pointer-events: none;
+    z-index: 199;
+    animation: webDrop 1s ease-out forwards;
+  }
+  @keyframes webDrop {
+    from { height: 0; opacity: 1; }
+    to { height: 80vh; opacity: 0; }
+  }
+
+  .secret-message {
+    margin-top: 2.5rem;
+    padding: 2.5rem;
+    background: var(--card-bg);
+    border: 2px solid var(--red);
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    display: none;
+    animation: popIn 0.6s cubic-bezier(.17,.67,.35,1.35) both;
+  }
+  .secret-message.visible { display: block; }
+
+  @keyframes popIn {
+    from { opacity: 0; transform: scale(0.7) rotate(-3deg); }
+    to { opacity: 1; transform: scale(1) rotate(0deg); }
+  }
+
+  .secret-message h3 {
+    font-family: 'Bangers', cursive;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 15px rgba(255,215,0,0.5);
+  }
+  .secret-message p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(244,244,240,0.88);
+  }
+  .secret-emoji { font-size: 2.5rem; display: block; margin-top: 1.2rem; }
+
+  /* ========== TYPING ANIMATION ========== */
+  .typing-wrap { font-family: 'Bangers', cursive; font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: 2px; color: var(--neon-blue); min-height: 3rem; }
+  .cursor { display: inline-block; width: 3px; height: 1.2em; background: var(--neon-blue); margin-left: 3px; animation: blink 0.8s step-end infinite; vertical-align: middle; }
+  @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
+
+  /* ========== COUNTDOWN ========== */
+  #countdown-section { text-align: center; }
+  .countdown-label { font-family: 'Bebas Neue', cursive; letter-spacing: 4px; color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-bottom: 1.5rem; }
+  .countdown-grid { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+  .count-box {
+    background: var(--card-bg);
+    border: 1px solid rgba(232,35,42,0.3);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    backdrop-filter: blur(10px);
+    min-width: 100px;
+    text-align: center;
+    transition: all var(--transition);
+  }
+  .count-box:hover { border-color: var(--red); transform: translateY(-4px); }
+  .count-num { font-family: 'Bangers', cursive; font-size: 3.5rem; line-height: 1; color: var(--red); text-shadow: 0 0 20px rgba(232,35,42,0.5); }
+  .count-unit { font-family: 'Bebas Neue', cursive; letter-spacing: 3px; font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+
+  /* ========== FOOTER ========== */
+  footer {
+    position: relative; z-index: 2;
+    text-align: center;
+    padding: 3rem 1.5rem;
+    border-top: 1px solid rgba(232,35,42,0.15);
+    background: rgba(0,0,0,0.3);
+  }
+  .footer-logo { font-family: 'Bangers', cursive; font-size: 2rem; letter-spacing: 4px; color: var(--red); text-shadow: 0 0 20px rgba(232,35,42,0.5); }
+  .footer-sub { font-size: 0.85rem; color: rgba(255,255,255,0.3); margin-top: 0.5rem; letter-spacing: 2px; }
+
+  /* ========== CONFETTI ========== */
+  #confetti-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 300; }
+
+  /* ========== POPUP ========== */
+  .popup-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(6px);
+    z-index: 500;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+  .popup-overlay.open { opacity: 1; pointer-events: all; }
+  .popup-box {
+    background: linear-gradient(135deg, #0A1230, #140520);
+    border: 2px solid var(--red);
+    border-radius: 20px;
+    padding: 3rem;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    transform: scale(0.8);
+    transition: transform 0.4s cubic-bezier(.17,.67,.35,1.35);
+    position: relative;
+  }
+  .popup-overlay.open .popup-box { transform: scale(1); }
+  .popup-close {
+    position: absolute; top: 1rem; right: 1rem;
+    background: rgba(255,255,255,0.08); border: none; color: white;
+    width: 32px; height: 32px; border-radius: 50%; font-size: 1.1rem;
+    cursor: pointer; transition: all var(--transition);
+  }
+  .popup-close:hover { background: var(--red); }
+  .popup-spider { font-size: 4rem; margin-bottom: 1rem; animation: spinOnce 1s ease; }
+  @keyframes spinOnce { from { transform: rotate(-360deg) scale(0); } to { transform: rotate(0) scale(1); } }
+  .popup-box h2 { font-family: 'Bangers', cursive; font-size: 2.2rem; letter-spacing: 3px; color: var(--gold); text-shadow: 0 0 15px rgba(255,215,0,0.5); margin-bottom: 0.8rem; }
+  .popup-box p { line-height: 1.8; color: rgba(255,255,255,0.8); }
+
+  /* ========== KEYFRAMES ========== */
+  @keyframes fadeSlideDown {
+    from { opacity: 0; transform: translateY(-24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes glowPulse {
+    0%,100% { text-shadow: 0 0 20px rgba(255,215,0,0.7), 0 0 60px rgba(255,215,0,0.3), 3px 3px 0 var(--red-dark); }
+    50%      { text-shadow: 0 0 40px rgba(255,215,0,1),   0 0 80px rgba(255,215,0,0.5), 3px 3px 0 var(--red-dark); }
+  }
+
+  /* ========== SCROLL REVEAL ========== */
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ========== MOBILE NAV ========== */
+  @media (max-width: 768px) {
+    .hamburger { display: flex; }
+    .nav-links {
+      position: fixed; top: 60px; left: 0; right: 0;
+      background: rgba(5,10,30,0.97);
+      flex-direction: column; gap: 0; padding: 1rem 0;
+      transform: translateY(-120%); transition: transform var(--transition);
+    }
+    .nav-links.open { transform: translateY(0); }
+    .nav-links li { border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-links a { display: block; padding: 0.9rem 2rem; }
+
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  }
+
+  @media (max-width: 480px) {
+    .section-inner { padding: 4rem 1rem; }
+    .countdown-grid { gap: 0.8rem; }
+    .count-box { min-width: 70px; padding: 1rem; }
+    .count-num { font-size: 2.5rem; }
+  }
+
+  /* ========== LOVE BALLOONS ========== */
+  #balloon-layer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 50;
+    overflow: hidden;
+  }
+
+  .balloon {
+    position: absolute;
+    bottom: -160px;
+    pointer-events: all;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: floatUp linear infinite;
+    transition: transform 0.2s ease;
+    will-change: transform;
+  }
+  .balloon:hover { transform: scale(1.18) rotate(4deg); }
+  .balloon:hover .balloon-body { filter: brightness(1.3) drop-shadow(0 0 14px currentColor); }
+
+  .balloon-body {
+    width: 64px;
+    height: 78px;
+    border-radius: 50% 50% 48% 48% / 55% 55% 45% 45%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: inset -8px -8px 20px rgba(0,0,0,0.25), inset 4px 4px 12px rgba(255,255,255,0.3);
+    transition: filter 0.2s ease;
+  }
+  .balloon-body::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 10px solid currentColor;
+  }
+  .balloon-shine {
+    position: absolute;
+    top: 12px; left: 14px;
+    width: 14px; height: 20px;
+    background: rgba(255,255,255,0.35);
+    border-radius: 50%;
+    transform: rotate(-30deg);
+  }
+  .balloon-avatar {
+    font-size: 1.6rem;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+  }
+  .balloon-string {
+    width: 1.5px;
+    height: 55px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.5), rgba(255,255,255,0.1));
+    margin-top: 0;
+  }
+  .balloon-name {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.75);
+    margin-top: 3px;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+    max-width: 80px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @keyframes floatUp {
+    0%   { bottom: -160px; opacity: 0; }
+    5%   { opacity: 1; }
+    90%  { opacity: 0.9; }
+    100% { bottom: 110%; opacity: 0; }
+  }
+
+  /* ========== BALLOON COMMENT MODAL ========== */
+  .balloon-modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+    z-index: 600;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+  .balloon-modal-overlay.open { opacity: 1; pointer-events: all; }
+
+  .balloon-modal {
+    background: linear-gradient(145deg, #0B1535, #130A2A);
+    border-radius: 24px;
+    padding: 2.5rem 2.5rem 2rem;
+    max-width: 460px;
+    width: 92%;
+    text-align: center;
+    position: relative;
+    transform: scale(0.75) translateY(30px);
+    transition: transform 0.4s cubic-bezier(.17,.67,.35,1.35);
+    border: 2px solid;
+  }
+  .balloon-modal-overlay.open .balloon-modal { transform: scale(1) translateY(0); }
+
+  .balloon-modal-close {
+    position: absolute; top: 1rem; right: 1rem;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+    color: white; width: 32px; height: 32px;
+    border-radius: 50%; font-size: 1rem;
+    cursor: pointer; transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .balloon-modal-close:hover { background: var(--red); }
+
+  .modal-balloon-preview {
+    width: 80px; height: 96px;
+    border-radius: 50% 50% 48% 48% / 55% 55% 45% 45%;
+    margin: 0 auto 1rem;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.5rem;
+    box-shadow: inset -10px -10px 24px rgba(0,0,0,0.3), inset 5px 5px 14px rgba(255,255,255,0.25);
+    position: relative;
+    animation: modalBalloonBounce 2s ease-in-out infinite;
+  }
+  .modal-balloon-preview::after {
+    content: '';
+    position: absolute; bottom: -8px; left: 50%;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 12px solid currentColor;
+  }
+  @keyframes modalBalloonBounce {
+    0%,100% { transform: translateY(0) rotate(-2deg); }
+    50%      { transform: translateY(-10px) rotate(2deg); }
+  }
+
+  .modal-person-name {
+    font-family: 'Bangers', cursive;
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 0.2rem;
+  }
+  .modal-relation {
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 1.4rem;
+  }
+  .modal-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+    margin: 0 auto 1.4rem;
+    width: 80%;
+  }
+  .modal-comment {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.85);
+    font-style: italic;
+    position: relative;
+    padding: 0 0.5rem;
+  }
+  .modal-comment::before {
+    content: '\201C';
+    font-family: 'Bangers', cursive;
+    font-size: 4rem;
+    color: rgba(255,255,255,0.1);
+    position: absolute;
+    top: -1.2rem; left: -0.5rem;
+    line-height: 1;
+  }
+  .modal-hearts {
+    margin-top: 1.4rem;
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    animation: heartbeat 1.4s ease-in-out infinite;
+  }
+  @keyframes heartbeat {
+    0%,100% { transform: scale(1); }
+    14%     { transform: scale(1.2); }
+    28%     { transform: scale(1); }
+    42%     { transform: scale(1.15); }
+    56%     { transform: scale(1); }
+  }
+
+  #loves-nav-hint {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- CANVAS FOR CONFETTI -->
+<canvas id="confetti-canvas"></canvas>
+
+<!-- FLOATING BALLOONS LAYER -->
+<div id="balloon-layer"></div>
+
+<!-- BALLOON COMMENT MODAL -->
+<div class="balloon-modal-overlay" id="balloonModal">
+  <div class="balloon-modal" id="balloonModalBox">
+    <button class="balloon-modal-close" onclick="closeBalloonModal()">✕</button>
+    <div class="modal-balloon-preview" id="modalBalloonEmoji"></div>
+    <div class="modal-person-name" id="modalName"></div>
+    <div class="modal-relation" id="modalRelation"></div>
+    <div class="modal-divider"></div>
+    <div class="modal-comment" id="modalComment"></div>
+    <div class="modal-hearts" id="modalHearts"></div>
+  </div>
+</div>
+
+<!-- BACKGROUNDS -->
+<div class="city-bg"></div>
+<div class="web-overlay"></div>
+
+<!-- WELCOME POPUP -->
+<div class="popup-overlay" id="welcomePopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()">✕</button>
+    <div class="popup-spider">🕷️</div>
+    <h2>YOUR SPIDER-SENSE IS TINGLING!</h2>
+    <p>Welcome to the most <strong style="color:var(--red)">spectacular</strong> birthday celebration in VIT. Get ready for an epic adventure, hero!</p>
+    <button class="btn btn-primary" style="margin-top:1.5rem;" onclick="closePopup()">🕸️ LET'S GO!</button>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">🕷️ SPIDEY-B-DAY</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#about">Story</a></li>
+    <li><a href="#quotes">Wisdom</a></li>
+    <li><a href="#gallery">Memories</a></li>
+    <li><a href="#surprise">Surprise</a></li>
+  </ul>
+  <div class="nav-controls">
+    <button class="icon-btn" id="musicBtn" title="Toggle Music" onclick="toggleMusic()">🎵</button>
+    <button class="icon-btn" id="themeBtn" title="Toggle Theme" onclick="toggleTheme()">🌙</button>
+    <div class="hamburger" id="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <!-- Web corner decorations -->
+  <svg class="web-corner left" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="rgba(255,255,255,0.18)" stroke-width="1" fill="none">
+      <line x1="0" y1="0" x2="220" y2="0"/>
+      <line x1="0" y1="0" x2="0" y2="220"/>
+      <line x1="0" y1="0" x2="60" y2="220"/>
+      <line x1="0" y1="0" x2="220" y2="60"/>
+      <line x1="0" y1="0" x2="180" y2="220"/>
+      <line x1="0" y1="0" x2="220" y2="180"/>
+      <path d="M0,40 Q40,40 40,0"/>
+      <path d="M0,90 Q90,90 90,0"/>
+      <path d="M0,140 Q140,140 140,0"/>
+      <path d="M0,190 Q190,190 190,0"/>
+    </g>
+  </svg>
+  <svg class="web-corner right" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="rgba(255,255,255,0.18)" stroke-width="1" fill="none">
+      <line x1="0" y1="0" x2="220" y2="0"/>
+      <line x1="0" y1="0" x2="0" y2="220"/>
+      <line x1="0" y1="0" x2="60" y2="220"/>
+      <line x1="0" y1="0" x2="220" y2="60"/>
+      <line x1="0" y1="0" x2="180" y2="220"/>
+      <line x1="0" y1="0" x2="220" y2="180"/>
+      <path d="M0,40 Q40,40 40,0"/>
+      <path d="M0,90 Q90,90 90,0"/>
+      <path d="M0,140 Q140,140 140,0"/>
+      <path d="M0,190 Q190,190 190,0"/>
+    </g>
+  </svg>
+
+  <!-- Swinging Spider-Man -->
+  <div class="spidey-wrap" id="spideyWrap">
+    <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+      <line x1="50" y1="0" x2="50" y2="30" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"/>
+      <ellipse cx="50" cy="65" rx="18" ry="22" fill="#E8232A"/>
+      <circle cx="50" cy="38" r="14" fill="#E8232A"/>
+      <ellipse cx="44" cy="35" rx="7" ry="9" fill="white" transform="rotate(-10,44,35)"/>
+      <ellipse cx="56" cy="35" rx="7" ry="9" fill="white" transform="rotate(10,56,35)"/>
+      <ellipse cx="44" cy="35" rx="5" ry="7" fill="#1A3AFF" transform="rotate(-10,44,35)"/>
+      <ellipse cx="56" cy="35" rx="5" ry="7" fill="#1A3AFF" transform="rotate(10,56,35)"/>
+      <line x1="50" y1="43" x2="50" y2="87" stroke="#9B1218" stroke-width="1"/>
+      <line x1="32" y1="55" x2="68" y2="55" stroke="#9B1218" stroke-width="1"/>
+      <line x1="33" y1="68" x2="67" y2="68" stroke="#9B1218" stroke-width="1"/>
+      <line x1="36" y1="80" x2="64" y2="80" stroke="#9B1218" stroke-width="1"/>
+      <line x1="32" y1="75" x2="10" y2="100" stroke="#1A3AFF" stroke-width="4" stroke-linecap="round"/>
+      <line x1="68" y1="75" x2="90" y2="100" stroke="#1A3AFF" stroke-width="4" stroke-linecap="round"/>
+      <line x1="10" y1="100" x2="5" y2="115" stroke="#1A3AFF" stroke-width="3" stroke-linecap="round"/>
+      <line x1="90" y1="100" x2="95" y2="115" stroke="#1A3AFF" stroke-width="3" stroke-linecap="round"/>
+      <line x1="34" y1="60" x2="8" y2="45" stroke="#1A3AFF" stroke-width="4" stroke-linecap="round"/>
+      <line x1="66" y1="60" x2="92" y2="45" stroke="#1A3AFF" stroke-width="4" stroke-linecap="round"/>
+      <line x1="8" y1="45" x2="0" y2="10" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-dasharray="3,2"/>
+    </svg>
+  </div>
+
+  <span class="hero-badge">⭐ SPECIAL EDITION BIRTHDAY ⭐</span>
+  <h1 class="hero-title">
+    HAPPY BIRTHDAY
+    <span class="hero-name" id="birthdayName">JAYENTH KUNNA</span>
+  </h1>
+  <p class="hero-sub">Your friendly neighborhood Spider-Man celebrates YOU today! 🕸️</p>
+
+  <div class="hero-buttons">
+    <a href="#surprise" class="btn btn-primary">🕸️ CLICK FOR SURPRISE</a>
+    <a href="#about" class="btn btn-secondary">📖 READ THE STORY</a>
+  </div>
+
+  <div class="typing-wrap" id="typingText" style="margin-top:2.5rem;"></div>
+  <span class="cursor"></span>
+
+  <div style="margin-top:1.8rem; font-family:'Bebas Neue',cursive; letter-spacing:3px; font-size:0.78rem; color:rgba(255,255,255,0.4); animation: fadeSlideDown 1s 1.4s ease both; opacity:0;">
+    🎈 FLOATING BALLOONS = MESSAGES FROM PEOPLE WHO LOVE YOU &mdash; CLICK THEM!
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <p class="section-label">THE ORIGIN STORY</p>
+    <h2 class="section-title">A HERO IS BORN 🎂</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>Every great hero has an origin story — and yours is nothing short of <span class="highlight">LEGENDARY</span>. You didn't need a radioactive spider bite to become someone truly extraordinary. You were born that way.</p>
+        <p>Through every challenge, every adventure, every late-night laugh and impossible deadline — you've shown the world that <span class="highlight">real strength</span> isn't measured in web-shooters or wall-crawling. It's measured in kindness, courage, and the way you make everyone around you feel like a superhero too.</p>
+        <p>Today, on this glorious birthday, the city lights up for <span class="highlight">JAYENTH</span>. New York's favourite neighbour. The world's greatest friend. The most spectacular human being in any universe. 🕷️</p>
+      </div>
+      <div class="about-shield reveal">
+        <div class="stat-card">
+          <div class="stat-icon">🎂</div>
+          <div>
+            <div class="stat-label">Birthday Level Unlocked</div>
+            <div class="stat-value">LEGENDARY STATUS</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">💪</div>
+          <div>
+            <div class="stat-label">Superpower Detected</div>
+            <div class="stat-value">INFINITE AWESOMENESS</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🕸️</div>
+          <div>
+            <div class="stat-label">Spider-Sense Level</div>
+            <div class="stat-value">MAXIMUM TINGLING</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🌆</div>
+          <div>
+            <div class="stat-label">Home City</div>
+            <div class="stat-value">THE WHOLE UNIVERSE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTES -->
+<section id="quotes">
+  <div class="section-inner" style="padding:3.5rem 1.5rem;">
+    <p class="section-label">WORDS OF WISDOM</p>
+    <div class="quote-carousel" id="quoteCarousel">
+      <div class="quote-item active">
+        <p class="quote-text">"With great power comes great responsibility."</p>
+        <p class="quote-source">— UNCLE BEN / SPIDER-MAN</p>
+      </div>
+      <div class="quote-item">
+        <p class="quote-text">"Anyone can wear the mask. You could wear the mask. If you didn't know that before, I hope you do now."</p>
+        <p class="quote-source">— MILES MORALES</p>
+      </div>
+      <div class="quote-item">
+        <p class="quote-text">"No matter how many times you get knocked down, you get back up."</p>
+        <p class="quote-source">— PETER PARKER</p>
+      </div>
+      <div class="quote-item">
+        <p class="quote-text">"I'm the best there is at what I do — and what I do is wish people a SPECTACULAR birthday!"</p>
+        <p class="quote-source">— SPIDER-MAN (BIRTHDAY EDITION)</p>
+      </div>
+      <div class="quote-item">
+        <p class="quote-text">"The world will always need a hero. And today, we celebrate the hero in YOU."</p>
+        <p class="quote-source">— YOUR FRIENDLY NEIGHBORHOOD PARTY PLANNER</p>
+      </div>
+    </div>
+    <div class="quote-dots" id="quoteDots"></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-inner">
+    <p class="section-label">HALL OF MEMORIES</p>
+    <h2 class="section-title">LEGENDARY MOMENTS 📸</h2>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section id="countdown-section">
+  <div class="section-inner reveal" style="padding:3rem 1.5rem;">
+    <p class="section-label">TIME & SPACE</p>
+    <h2 class="section-title">THE BIRTHDAY CLOCK ⏰</h2>
+    <p class="countdown-label" id="countdownLabel">DAYS SINCE YOUR LAST BIRTHDAY</p>
+    <div class="countdown-grid">
+      <div class="count-box"><div class="count-num" id="cDays">00</div><div class="count-unit">DAYS</div></div>
+      <div class="count-box"><div class="count-num" id="cHours">00</div><div class="count-unit">HOURS</div></div>
+      <div class="count-box"><div class="count-num" id="cMins">00</div><div class="count-unit">MINUTES</div></div>
+      <div class="count-box"><div class="count-num" id="cSecs">00</div><div class="count-unit">SECONDS</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SURPRISE -->
+<section id="surprise">
+  <div class="section-inner" style="text-align:center;">
+    <p class="section-label">🕷️ TOP SECRET 🕷️</p>
+    <h2 class="section-title">ACTIVATE YOUR SPIDER-SENSE 🕸️</h2>
+    <div class="surprise-area reveal">
+      <p style="color:rgba(255,255,255,0.6);margin-bottom:2rem;">Something spectacular is hidden in this web. Do you dare click?</p>
+      <button class="web-btn" id="surpriseBtn" onclick="triggerSurprise()">
+        🕸️ SHOOT THE WEB!
+      </button>
+      <div class="secret-message" id="secretMsg">
+        <h3>🎉 SURPRISE, JAYENTH! 🎉</h3>
+        <p>On this incredible day, the multiverse paused, every Spider-Man in every dimension raised their web-shooters in your honour. Because someone as amazing as you only comes around once — even across infinite parallel universes.</p>
+        <p style="margin-top:1rem;">You are <strong style="color:var(--gold)">stronger than you know</strong>, braver than you believe, and more loved than you can possibly imagine. Happy Birthday, Jayenth! May your year be as epic as a Spider-Man storyline — full of adventure, heart, and incredible moments. 🕷️❤️</p>
+        <span class="secret-emoji">🕸️🎂🕸️</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">🕷️ SPIDER-B-DAY 🕷️</div>
+  <p class="footer-sub" style="margin-top:0.5rem;">Made with ❤️ &amp; webs · Stay spectacular · &copy; <span id="yr"></span></p>
+</footer>
+
+<!-- AUDIO -->
+<audio id="bgMusic" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-epic.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// ============================
+// CONFIG
+// ============================
+const BIRTHDAY_NAME = "JAYENTH KUNNA";
+const BIRTHDAY_MONTH = 6; // June (0-indexed)
+const BIRTHDAY_DAY   = 15;
+
+// ============================
+// INIT
+// ============================
+document.getElementById('birthdayName').textContent = BIRTHDAY_NAME;
+document.getElementById('yr').textContent = new Date().getFullYear();
+setTimeout(() => document.getElementById('welcomePopup').classList.add('open'), 600);
+
+// ============================
+// POPUP
+// ============================
+function closePopup() {
+  document.getElementById('welcomePopup').classList.remove('open');
+}
+document.getElementById('welcomePopup').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closePopup();
+});
+
+// ============================
+// THEME TOGGLE
+// ============================
+let isLight = false;
+function toggleTheme() {
+  isLight = !isLight;
+  document.body.classList.toggle('light', isLight);
+  document.getElementById('themeBtn').textContent = isLight ? '☀️' : '🌙';
+}
+
+// ============================
+// NAV MOBILE
+// ============================
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
+  document.getElementById('navLinks').classList.remove('open');
+}));
+
+// ============================
+// MUSIC
+// ============================
+let musicOn = false;
+const music = document.getElementById('bgMusic');
+music.volume = 0.25;
+function toggleMusic() {
+  musicOn = !musicOn;
+  musicOn ? music.play().catch(()=>{}) : music.pause();
+  document.getElementById('musicBtn').textContent = musicOn ? '🔊' : '🎵';
+}
+
+// ============================
+// QUOTES CAROUSEL
+// ============================
+const quotes = document.querySelectorAll('.quote-item');
+const dotsEl = document.getElementById('quoteDots');
+let currentQ = 0;
+quotes.forEach((_, i) => {
+  const d = document.createElement('div');
+  d.className = 'quote-dot' + (i === 0 ? ' active' : '');
+  d.addEventListener('click', () => goQuote(i));
+  dotsEl.appendChild(d);
+});
+function goQuote(n) {
+  quotes[currentQ].classList.remove('active');
+  dotsEl.children[currentQ].classList.remove('active');
+  currentQ = n;
+  quotes[currentQ].classList.add('active');
+  dotsEl.children[currentQ].classList.add('active');
+}
+setInterval(() => goQuote((currentQ + 1) % quotes.length), 4500);
+
+// ============================
+// GALLERY
+// ============================
+const memories = [
+  { icon: '🎉', label: 'Party Night', msg: 'That legendary night we laughed until it hurt. Unforgettable! 🎉' },
+  { icon: '🌊', label: 'Beach Day', msg: 'Sun, sand, and shenanigans. The best kind of trouble! 🌊' },
+  { icon: '🍕', label: 'Pizza O\'Clock', msg: '3AM pizza after an epic adventure. Perfection. 🍕' },
+  { icon: '🎮', label: 'Gaming Mode', msg: 'Countless hours, zero regrets. Champions forever! 🎮' },
+  { icon: '📸', label: 'Candid Moment', msg: 'Caught mid-laugh — the truest, most beautiful version of you. 📸' },
+  { icon: '🚀', label: 'Road Trip', msg: 'Windows down, music loud, destination: anywhere. 🚀' },
+];
+const grid = document.getElementById('galleryGrid');
+memories.forEach((m, i) => {
+  grid.innerHTML += `
+    <div class="flip-card reveal">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <span class="memory-number">MEMORY #${String(i+1).padStart(2,'0')}</span>
+          <div class="memory-icon">${m.icon}</div>
+          <div class="memory-label">${m.label}</div>
+        </div>
+        <div class="flip-back">
+          <div style="font-size:2.5rem;margin-bottom:0.8rem;">${m.icon}</div>
+          <div class="back-title">${m.label.toUpperCase()}</div>
+          <p class="back-text">${m.msg}</p>
+        </div>
+      </div>
+    </div>`;
+});
+
+// ============================
+// SURPRISE + CONFETTI
+// ============================
+function triggerSurprise() {
+  shootWebs();
+  launchConfetti();
+  const msg = document.getElementById('secretMsg');
+  msg.classList.add('visible');
+  document.getElementById('surpriseBtn').textContent = '🕸️ WEB SHOT! 🕸️';
+  document.getElementById('surpriseBtn').disabled = true;
+}
+
+function shootWebs() {
+  const btn = document.getElementById('surpriseBtn');
+  const rect = btn.getBoundingClientRect();
+  const cx = rect.left + rect.width / 2;
+  for (let i = 0; i < 8; i++) {
+    const s = document.createElement('div');
+    s.className = 'web-strand';
+    s.style.left = (cx + (Math.random() - 0.5) * 300) + 'px';
+    s.style.height = (Math.random() * 40 + 20) + 'vh';
+    s.style.opacity = Math.random() * 0.6 + 0.4;
+    s.style.animationDelay = (i * 0.06) + 's';
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 1200 + i * 60);
+  }
+}
+
+// ============================
+// CONFETTI ENGINE
+// ============================
+const canvas = document.getElementById('confetti-canvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+let animId = null;
+
+function launchConfetti() {
+  canvas.width  = window.innerWidth;
+  canvas.height = window.innerHeight;
+  particles = [];
+  const colors = ['#E8232A','#1A3AFF','#FFD700','#FFFFFF','#FF69B4','#00BFFF'];
+  for (let i = 0; i < 180; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: -20,
+      r: Math.random() * 8 + 4,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      vx: (Math.random() - 0.5) * 5,
+      vy: Math.random() * 4 + 2,
+      spin: Math.random() * 0.2 - 0.1,
+      angle: Math.random() * Math.PI * 2,
+      shape: Math.random() > 0.5 ? 'rect' : 'circle'
+    });
+  }
+  if (animId) cancelAnimationFrame(animId);
+  animateConfetti();
+}
+
+function animateConfetti() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles = particles.filter(p => p.y < canvas.height + 30);
+  particles.forEach(p => {
+    p.x += p.vx; p.y += p.vy;
+    p.angle += p.spin;
+    p.vy += 0.08;
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.angle);
+    ctx.fillStyle = p.color;
+    ctx.globalAlpha = Math.max(0, 1 - p.y / canvas.height * 0.8);
+    if (p.shape === 'rect') ctx.fillRect(-p.r, -p.r/2, p.r*2, p.r);
+    else { ctx.beginPath(); ctx.arc(0, 0, p.r/2, 0, Math.PI*2); ctx.fill(); }
+    ctx.restore();
+  });
+  if (particles.length > 0) animId = requestAnimationFrame(animateConfetti);
+  else ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+
+function updateCountdown() {
+  const now = new Date();
+  const bday = new Date(now.getFullYear(), BIRTHDAY_MONTH, BIRTHDAY_DAY);
+
+  if (now > bday) bday.setFullYear(bday.getFullYear() + 1);
+
+  const diff = bday - now;
+
+  const isToday =
+    now.getMonth() === BIRTHDAY_MONTH &&
+    now.getDate() === BIRTHDAY_DAY;
+
+  const tomorrow = new Date(now);
+  tomorrow.setDate(now.getDate() + 1);
+
+  const isTomorrow =
+    tomorrow.getMonth() === BIRTHDAY_MONTH &&
+    tomorrow.getDate() === BIRTHDAY_DAY;
+
+  // 🎉 TODAY
+  if (isToday) {
+    document.getElementById('countdownLabel').textContent =
+      '🎉 TODAY IS THE DAY! HAPPY BIRTHDAY JAYENTH! 🎉';
+
+    ['cDays','cHours','cMins','cSecs'].forEach(id =>
+      document.getElementById(id).textContent = '🎂'
+    );
+    return;
+  }
+
+  // 🎈 TOMORROW
+  if (isTomorrow) {
+    document.getElementById('countdownLabel').textContent =
+      '🎈 TOMORROW IS JAYENTH\'S BIRTHDAY! GET READY! 🎉';
+  } else {
+    document.getElementById('countdownLabel').textContent =
+      'TIME UNTIL NEXT BIRTHDAY';
+  }
+
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+
+  document.getElementById('cDays').textContent  = String(d).padStart(2,'0');
+  document.getElementById('cHours').textContent = String(h).padStart(2,'0');
+  document.getElementById('cMins').textContent  = String(m).padStart(2,'0');
+  document.getElementById('cSecs').textContent  = String(s).padStart(2,'0');
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000); 
+// ============================
+// TYPING ANIMATION
+// ============================
+const phrases = [
+  `Happy Birthday, Jayenth! 🎉`,
+  "You're one in a multiverse! 🕸️",
+  "Your spider-sense is LEGENDARY! 💥",
+  "Today, the city swings for YOU! 🌆",
+  "Thwip thwip! Have the best day! 🕷️",
+];
+let pi = 0, ci = 0, typing = true;
+const tyEl = document.getElementById('typingText');
+
+function typeStep() {
+  const phrase = phrases[pi];
+  if (typing) {
+    tyEl.textContent = phrase.slice(0, ci + 1);
+    ci++;
+    if (ci === phrase.length) { typing = false; setTimeout(typeStep, 1800); return; }
+  } else {
+    tyEl.textContent = phrase.slice(0, ci - 1);
+    ci--;
+    if (ci === 0) { typing = true; pi = (pi + 1) % phrases.length; }
+  }
+  setTimeout(typeStep, typing ? 65 : 35);
+}
+typeStep();
+
+// ============================
+// SCROLL REVEAL
+// ============================
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.12 });
+revealEls.forEach(el => observer.observe(el));
+
+// ============================
+// SMOOTH NAV SCROLL
+// ============================
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// ============================
+// LOVE BALLOONS
+// ============================
+const loveMessages = [
+  {
+    name: "ANU",
+    relation: "ONLY GIRL IN GROUP",
+    emoji: "👩",
+    color: "#FF6B9D",
+    colorDark: "#C2185B",
+    comment: "Happy Birthday to the one who always made me feel comfortable no matter the situation Your presence has been my safe space, and I’m truly grateful for you. Thank you for always understanding, supporting. May your day be as amazing and light-hearted as you make everyone else feel. Wishing you happiness, success, and all the good things you deserve!💖",
+    hearts: "💗💗💗"
+  },
+  {
+    name: "ROHIT R",
+    relation: "BEHIND THE HERO",
+    emoji: "👨",
+    color: "#4FC3F7",
+    colorDark: "#0277BD",
+    comment: "Jayenth is someone I will never forget. He knows how to live life without regret. Though he goes with the flow, he still has emotions and faces his own hurdles. I truly hope he navigates them well. 🕷️",
+    hearts: "💙💙💙"
+  },
+  {
+    name: "SHYAM",
+    relation: "FRIEND & FELLOW LEGEND",
+    emoji: "🧑",
+    color: "#81C784",
+    colorDark: "#2E7D32",
+    comment: "Some people just exist, but you add value to every room you walk into. Glad I get to know someone like you — hope life gives you as much as you give others. Happy Birthday, Jayenth! 🥳 May your day be filled with laughter and your year with amazing opportunities.",
+    hearts: "💚💚💚"
+  },
+  {
+    name: "SURAJ KM",
+    relation: "ANNOYING BUT LOVING",
+    emoji: "👨",
+    color: "#CE93D8",
+    colorDark: "#6A1B9A",
+    comment: "Pirandha Naal Vaazhthukkal 🌙✨",
+    hearts: "💜💜💜"
+  },
+  {
+    name: "SASI VARDHAN",
+    relation: "BANKER FRIEND",
+    emoji: "🧒",
+    color: "#FFB74D",
+    colorDark: "#E65100",
+    comment: "Happy Birthday, legend! 🎂🔥 Our personal banker who always pays for us 😄 and cares for everyone like family. Respect + love always, bro! ❤️🎂",
+    hearts: "🧡🧡🧡"
+  },
+  {
+    name: "DANISH",
+    relation: "COOL FRIEND",
+    emoji: "🧒",
+    color: "#EF9A9A",
+    colorDark: "#B71C1C",
+    comment: "Happy Birthday da ❤️🎉 Ippadiye eppovum santhosham ah sirichitu chill ah iru 😄 Pondy porom…  fun panrom 😉🔥😂Enjoy your day to the fullest ❤️🌟",
+    hearts: "❤️❤️❤️"
+  },
+  {
+    name: "SHIBU",
+    relation: "FRIEND & GOOD VIBES ONLY",
+    emoji: "👱",
+    color: "#80DEEA",
+    colorDark: "#00838F",
+    comment: "Happy Birthday macha! 🎉 You're someone who makes everything more fun and relaxed. Enjoy your day!",
+    hearts: "💛💛💛"
+  },
+  {
+    name: "DANIEL ROBIN",
+    relation: "THE COOL ONE",
+    emoji: "🧔",
+    color: "#A5D6A7",
+    colorDark: "#1B5E20",
+    comment: "Tuffest macha in the class, always on point🕷️💪",
+    hearts: "💚❤️💚"
+  },
+];
+
+const balloonLayer = document.getElementById('balloon-layer');
+
+const driftStyle = document.createElement('style');
+driftStyle.textContent = `
+  @keyframes floatUpDrift {
+    0%   { bottom: -160px; opacity: 0; transform: translateX(0); }
+    5%   { opacity: 1; }
+    25%  { transform: translateX(var(--drift, 0px)); }
+    50%  { transform: translateX(calc(var(--drift, 0px) * -0.6)); }
+    75%  { transform: translateX(var(--drift, 0px)); }
+    90%  { opacity: 0.85; }
+    100% { bottom: 110%; opacity: 0; transform: translateX(0); }
+  }
+`;
+document.head.appendChild(driftStyle);
+
+function createBalloon(person, index) {
+  const el = document.createElement('div');
+  el.className = 'balloon';
+  const leftPct = 4 + (index / loveMessages.length) * 88 + (Math.random() - 0.5) * 6;
+  const duration = 13 + Math.random() * 10;
+  const delay    = index * 1.9 + Math.random() * 2;
+  const drift    = (Math.random() - 0.5) * 50;
+
+  el.style.cssText = `
+    left: ${leftPct}%;
+    animation-name: floatUpDrift;
+    animation-duration: ${duration}s;
+    animation-delay: ${delay}s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    --drift: ${drift}px;
+  `;
+
+  el.innerHTML = `
+    <div class="balloon-body" style="background: radial-gradient(circle at 35% 35%, ${person.color}, ${person.colorDark}); color:${person.colorDark};">
+      <div class="balloon-shine"></div>
+      <div class="balloon-avatar">${person.emoji}</div>
+    </div>
+    <div class="balloon-string"></div>
+    <div class="balloon-name">${person.name}</div>
+  `;
+
+  el.addEventListener('click', () => openBalloonModal(person));
+  balloonLayer.appendChild(el);
+}
+
+loveMessages.forEach((person, i) => createBalloon(person, i));
+
+// ============================
+// BALLOON MODAL
+// ============================
+function openBalloonModal(person) {
+  const modal   = document.getElementById('balloonModal');
+  const box     = document.getElementById('balloonModalBox');
+  const emojiEl = document.getElementById('modalBalloonEmoji');
+  const nameEl  = document.getElementById('modalName');
+  const relEl   = document.getElementById('modalRelation');
+  const commEl  = document.getElementById('modalComment');
+  const heartEl = document.getElementById('modalHearts');
+
+  emojiEl.textContent   = person.emoji;
+  emojiEl.style.background = `radial-gradient(circle at 35% 35%, ${person.color}, ${person.colorDark})`;
+  emojiEl.style.color   = person.colorDark;
+  nameEl.textContent    = person.name;
+  nameEl.style.color    = person.color;
+  relEl.textContent     = person.relation;
+  commEl.textContent    = person.comment;
+  heartEl.textContent   = person.hearts;
+  box.style.borderColor = person.color;
+  box.style.boxShadow   = `0 0 40px ${person.color}55, 0 20px 60px rgba(0,0,0,0.6)`;
+
+  modal.classList.add('open');
+}
+
+function closeBalloonModal() {
+  document.getElementById('balloonModal').classList.remove('open');
+}
+document.getElementById('balloonModal').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeBalloonModal();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBalloonModal(); });
+
+</script>
+</body>
+</html>
